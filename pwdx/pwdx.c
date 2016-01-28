@@ -8,11 +8,12 @@
 	//добовляем функцию
 int main(int argc, char *argv[])
 {
-        //выделяем буфер для вывода
-char buff[256];
-myfunc (argv[1], buff, sizeof (buff));
-	//выводим строку на экран
+        //выделяем буфер для вывода, увеличиваем его
+char buff[1024];
+mypwd (argv[1], buff, sizeof (buff));
+
 printf("%s\n", buff);
+	//выводим строку на экран
 return 0;
 
 }
