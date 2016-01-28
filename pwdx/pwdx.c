@@ -5,17 +5,14 @@
 #include <unistd.h>
 #include <string.h>
 
-int main(int argc, char* argv[])
 	//добовляем функцию
+int main(int argc, char *argv[])
 {
         //выделяем буфер для вывода
 char buff[256];
-char* gde = argv[1];
-
-
-printf("%s\n", buff);
+myfunc (argv[1], buff, sizeof (buff));
 	//выводим строку на экран
+printf("%s\n", buff);
 return 0;
-
 
 }
