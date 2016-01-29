@@ -1,5 +1,4 @@
 /*mylib.c*/
-
 #include <stdio.h>
 #include <unistd.h>
 #include <errno.h>
@@ -7,7 +6,6 @@
 
 	//функция для pwdx
 char buff[1024];
-
 char * mypwd (char* arg1pwd, char * buff, size_t limit)
 {
 	//формируем строки процесса
