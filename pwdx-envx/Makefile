@@ -1,16 +1,18 @@
 DESTDIR=/usr/local/bin
 LIBDIR=/usr/local/lib
 
+all: pwdx envx
+
 envx:	envx.c mylib.so
-	gcc -o envx envx.c -lmylib -L./
+	gcc -o envx envx.c mylib.so -L./
 
 pwdx:	pwdx.c mylib.so
-	gcc -o pwdx pwdx.c -lmylib -L./
+	gcc -o pwdx pwdx.c mylib.so -L./
 
 mylib.so: mylib.c
 	gcc -shared -fPIC -o mylib.so mylib.c	
 
-install:	pwdx evnx 
+install: pwdx envx 
 	@[ `id -u` -eq 0 ] || { echo "use sudo make!"; exit 1; }
 	@install pwdx $(DESTDIR)
 	@install envx $(DESTDIR)
