@@ -9,11 +9,11 @@ char buff[1024];
 char * mypwd (char* arg1pwd, char * buff, size_t limit)
 {
 	//формируем строки процесса
-	char gdeproc[256] = "/proc/";
+	char sLink[256] = "/proc/";
 	char* argumentpwd = arg1pwd;
-	char* skleika = strcat(strcat(gdeproc,argumentpwd),"/cwd");
+	char* master = strcat(strcat(sLink,argumentpwd),"/cwd");
 	//делаем системный вызов
-	int func = readlink (skleika, buff, limit);
+	int func = readlink (master, buff, limit);
 	buff[func] = '\0';
 	return buff;
 }
@@ -21,11 +21,11 @@ char * mypwd (char* arg1pwd, char * buff, size_t limit)
 	//Функция Для envx
 char * myenv (char* arg1env)
 {
-	char gdeproc2[256] = "/proc/";
+	char sLink2[256] = "/proc/";
 	char* argumentenv = arg1env;
-	char* skleika2 = strcat(strcat(gdeproc2,argumentenv),"/environ");
+	char* master2 = strcat(strcat(master2,argumentenv),"/environ");
         FILE *ptr_file;
-        ptr_file = fopen(skleika2, "r");
+        ptr_file = fopen(master2, "r");
         char c;
         do
 {
